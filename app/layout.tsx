@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import "./globals.css";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -26,6 +27,16 @@ export default function RootLayout({
           Scroll to Top
         </a>
       </body>
+      <Script id="show-banner" strategy="afterInteractive">
+        {`const btn = document.getElementById("menu-btn");
+          const nav = document.getElementById("menu");
+
+          btn.addEventListener("click", () => {
+          btn.classList.toggle("open");
+          nav.classList.toggle("flex");
+          nav.classList.toggle("hidden");
+        });`}
+      </Script>
     </html>
   );
 }

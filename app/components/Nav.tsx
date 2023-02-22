@@ -11,8 +11,8 @@ function Nav() {
             <Image
               src="/img/bitmoq-main.png"
               alt=""
-              width="250"
-              height="250"
+              width={250}
+              height={250}
               title={process.env.NEXT_PUBLIC_SITE_TAGLINE}
             />
           </a>
@@ -52,7 +52,7 @@ function Nav() {
       <div className="md:hidden">
         <div
           id="menu"
-          className="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+          className="absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-lg"
         >
           <a href="/#top">Home</a>
           <a href="/#aboutus">About</a>
