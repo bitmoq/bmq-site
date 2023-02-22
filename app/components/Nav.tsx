@@ -30,7 +30,7 @@ function Nav() {
           <a href="/#careers" className="hover:text-gray-500">
             Careers
           </a>
-          <Link href="/blog" className="hover:text-gray-500">
+          <Link href="/blogs" className="hover:text-gray-500">
             Blog
           </Link>
         </div>
@@ -59,7 +59,7 @@ function Nav() {
           <a href="/#services">Services</a>
           <a href="/#careers">Careers</a>
           <a href="/#contactus">Contact Us</a>
-          <Link href="/blog">Blog</Link>
+          <Link href="/blogs">Blog</Link>
         </div>
       </div>
     </nav>

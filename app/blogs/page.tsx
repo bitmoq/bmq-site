@@ -6,10 +6,13 @@ import Link from "next/link";
 import { DateTime } from "luxon";
 
 const getPosts = () => {
-  const files = fs.readdirSync(path.join("posts"));
+  const files = fs.readdirSync(path.join(process.cwd(), "posts"));
   const posts = files.map((file) => {
     const slug = file.replace(".md", "");
-    const markdownWithMeta = fs.readFileSync(path.join("posts", file), "utf-8");
+    const markdownWithMeta = fs.readFileSync(
+      path.join(process.cwd(), "posts", file),
+      "utf-8"
+    );
     const { data: frontmatter } = matter(markdownWithMeta);
 
     return {
@@ -19,8 +22,8 @@ const getPosts = () => {
   });
   return posts.sort((a, b) => {
     return (
-      DateTime.fromISO(b.frontmatter.date) -
-      DateTime.fromISO(a.frontmatter.date)
+      DateTime.fromISO(b.frontmatter.date).valueOf() -
+      DateTime.fromISO(a.frontmatter.date).valueOf()
     );
   });
 };
@@ -43,7 +46,7 @@ function BlogListPage() {
                 {post.frontmatter.title}
               </h2>
               <div className="mt-2 flex gap-1">
-                {post.frontmatter.tags.map((tag) => (
+                {post.frontmatter.tags.map((tag: any) => (
                   <Link
                     key={tag}
                     href={`/tags/${tag}`}
